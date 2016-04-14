@@ -1,0 +1,26 @@
+package: dockapp-go
+import:
+- package: github.com/BurntSushi/xgbutil
+  subpackages:
+  - icccm
+  - xevent
+  - xgraphics
+  - xwindow
+- package: github.com/TheCreeper/go-upower
+  subpackages:
+  - device
+- package: github.com/bmatsuo/dockapp-go
+  subpackages:
+  - cmd/dockapp-battery/battery
+  - cmd/dockapp-battery/creeperguage
+  - dockapp
+  - geometry
+- package: github.com/bmatsuo/go-lexer
+- package: github.com/godbus/dbus
+- package: github.com/golang/freetype
+  subpackages:
+  - truetype
+- package: golang.org/x/image
+  subpackages:
+  - font
+  - math/fixed
