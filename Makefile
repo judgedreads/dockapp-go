@@ -2,7 +2,7 @@
 
 bin: 
 	mkdir -p bin
-	GOBIN=bin go install ./cmd/...
+	GOBIN="${PWD}/bin" go install ./cmd/...
 
 clean:
 	rm -f bin/*
