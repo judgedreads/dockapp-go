@@ -63,7 +63,7 @@ func ReadFont(r io.Reader) (*truetype.Font, error) {
 // systemFontGlobs is a set of location glob prefixes used to search for fonts
 // on the local system.
 var systemFontGlobs = []string{
-	"/usr/share/fonts/truetype/*", // Ubuntu 14.04, Debian???
+	"/usr/share/fonts/*", // Ubuntu 14.04, Debian???
 }
 
 // LocateFont does its best to locate truetype fonts on the local system.
