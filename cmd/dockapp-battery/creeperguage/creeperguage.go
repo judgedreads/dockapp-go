@@ -37,19 +37,19 @@ func NewCreeperBatteryGuage() (*CreeperBatteryGuage, error) {
 
 // BatteryMetrics implements the BatteryGuage interface.
 func (g *CreeperBatteryGuage) BatteryMetrics() (*battery.Metrics, error) {
-	state, err := propUint32(g.dev, "org.freedesktop.UPower.State")
+	state, err := propUint32(g.dev, "org.freedesktop.UPower.Device.State")
 	if err != nil {
 		return nil, fmt.Errorf("state: %v", err)
 	}
-	percent, err := propFloat64(g.dev, "org.freedesktop.UPower.Percentage")
+	percent, err := propFloat64(g.dev, "org.freedesktop.UPower.Device.Percentage")
 	if err != nil {
 		return nil, fmt.Errorf("charge: %v", err)
 	}
-	untilEmpty, err := propDurSec(g.dev, "org.freedesktop.UPower.TimeToEmpty")
+	untilEmpty, err := propDurSec(g.dev, "org.freedesktop.UPower.Device.TimeToEmpty")
 	if err != nil {
 		return nil, fmt.Errorf("until empty: %v", err)
 	}
-	untilFull, err := propDurSec(g.dev, "org.freedesktop.UPower.TimeToFull")
+	untilFull, err := propDurSec(g.dev, "org.freedesktop.UPower.Device.TimeToFull")
 	if err != nil {
 		return nil, fmt.Errorf("until full: %v", err)
 	}
@@ -134,7 +134,7 @@ func getBatteries() ([]dbus.ObjectPath, error) {
 
 func isBattery(path dbus.ObjectPath) bool {
 	log.Print(path)
-	x, err := propUint32(path, "org.freedesktop.UPower.Type")
+	x, err := propUint32(path, "org.freedesktop.UPower.Device.Type")
 	if err != nil {
 		log.Print(err)
 		return false
